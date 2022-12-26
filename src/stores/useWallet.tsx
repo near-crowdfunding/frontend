@@ -4,8 +4,8 @@ import { Account } from "@near-wallet-selector/core";
 
 interface WalletState {
   wallet: Wallet;
-  initialize: () => void;
   isIntialized: boolean;
+  initialize: () => void;
   get account(): Account;
   signIn: () => void;
   isSignedIn(): boolean;
