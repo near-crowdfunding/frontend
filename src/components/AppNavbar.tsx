@@ -20,13 +20,8 @@ function AppNavbar() {
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
-  const { account, signIn, isSignedIn: isWalletSignedIn } = useWallet();
+  const { account, signIn, isSignedIn } = useWallet();
   const [signOutVisible, setSignOutVisible] = useState(false);
-
-  const isSignedIn = useMemo(() => {
-    return isWalletSignedIn();
-  }, [isWalletSignedIn]);
-
   const handleClose = useCallback(
     () => setSignOutVisible(() => false),
     [setSignOutVisible]
@@ -85,7 +80,7 @@ function AppNavbar() {
 
         <Navbar.Content>
           <Navbar.Item>
-            {!isSignedIn ? (
+            {!isSignedIn() ? (
               <Button
                 auto
                 flat
